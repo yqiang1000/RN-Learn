@@ -54,9 +54,27 @@ class ChatScreen extends React.Component {
         title: 'Chat with Lucy',
     };
     render() {
+        const {navigate} = this.props.navigation;
         return (
             <View>
                 <Text>Chat with Lucy</Text>
+                <Button
+                    onPress={() => navigate('Third')}
+                    title={"这是一个按钮"}
+                />
+            </View>
+        );
+    }
+}
+
+class ThirdScreen extends React.Component {
+    static navigationOptions = {
+        title : 'third',
+    };
+    render () {
+        return (
+            <View>
+                <Text>hello third </Text>
             </View>
         );
     }
@@ -65,6 +83,7 @@ class ChatScreen extends React.Component {
 const SimpleApp = StackNavigator({
     Home: { screen: HomeScreen },
     Chat: { screen: ChatScreen },
+    Third:{ screen: ThirdScreen},
 });
 
 export default class App extends Component {
